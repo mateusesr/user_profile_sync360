@@ -42,9 +42,16 @@ class UserProfileController extends Controller
     }
 
 
-    public function index()
+    public function index(Request $request)
     {
-        $perfis = \App\Models\UserProfile::all();
+        $query = \App\Models\UserProfile::query();
+
+        if ($request->filled('busca')) {
+            $busca = $request->input('busca');
+            $query->where('nome', 'like', '%' . $busca . '%');
+        }
+
+        $perfis = $query->get();
 
         return view('users_profiles.index', ['perfis' => $perfis]);
     }
