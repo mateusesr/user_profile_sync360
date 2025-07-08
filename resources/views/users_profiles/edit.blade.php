@@ -89,52 +89,42 @@
         </div>
     </div>
     <script>
-    // Tailwind classes para inputs
     document.querySelectorAll('.input-form').forEach(el => {
         el.classList.add('w-full','rounded-lg','border','border-gray-300','px-3','py-2','focus:outline-none','focus:ring-2','focus:ring-green-200','transition-all','duration-150','text-gray-800','bg-gray-50','placeholder-gray-400');
     });
     document.querySelectorAll('.input-form-file').forEach(el => {
         el.classList.add('block','w-full','text-sm','text-gray-500','file:mr-4','file:py-2','file:px-4','file:rounded-lg','file:border-0','file:text-sm','file:font-semibold','file:bg-green-50','file:text-green-700','hover:file:bg-green-100');
     });
-    // Validação JS
     const form = document.getElementById('profileEditForm');
     const btn = document.getElementById('btnSalvar');
     const spinner = document.getElementById('btnSpinner');
     form.addEventListener('submit', function(e) {
         let valid = true;
-        // Limpa erros
         document.querySelectorAll('.error-msg').forEach(el => el.textContent = '');
-        // Nome
         if(form.nome.value.trim().length < 3) {
             document.getElementById('err-nome').textContent = 'Nome deve ter pelo menos 3 caracteres.';
             valid = false;
         }
-        // Idade
         if(form.idade.value < 1 || form.idade.value > 120) {
             document.getElementById('err-idade').textContent = 'Idade deve ser entre 1 e 120.';
             valid = false;
         }
-        // Estado
         if(form.estado.value.trim().length !== 2) {
             document.getElementById('err-estado').textContent = 'Estado deve ter 2 letras.';
             valid = false;
         }
-        // Cidade
         if(form.cidade.value.trim().length < 2) {
             document.getElementById('err-cidade').textContent = 'Cidade obrigatória.';
             valid = false;
         }
-        // Bairro
         if(form.bairro.value.trim().length < 2) {
             document.getElementById('err-bairro').textContent = 'Bairro obrigatório.';
             valid = false;
         }
-        // Rua
         if(form.rua.value.trim().length < 2) {
             document.getElementById('err-rua').textContent = 'Rua obrigatória.';
             valid = false;
         }
-        // Biografia
         if(form.biografia.value.trim().length < 10) {
             document.getElementById('err-biografia').textContent = 'Biografia deve ter pelo menos 10 caracteres.';
             valid = false;
@@ -143,7 +133,6 @@
             e.preventDefault();
             return false;
         }
-        // Mostra spinner
         spinner.classList.remove('hidden');
         btn.setAttribute('disabled', 'disabled');
     });
