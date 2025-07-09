@@ -14,6 +14,7 @@ ENV APP_ENV production
 ENV APP_DEBUG false
 ENV LOG_CHANNEL stderr
 
+RUN composer install
 RUN npm install
 RUN npm run build
 
