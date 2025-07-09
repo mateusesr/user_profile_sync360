@@ -24,3 +24,6 @@ RUN composer install
 RUN php artisan config:cache
 
 CMD php artisan serve --host=0.0.0.0 --port=10000
+
+RUN php artisan config:clear \
+    && php artisan migrate --force || true
