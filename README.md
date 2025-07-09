@@ -1,118 +1,161 @@
 # User Profile Sync 360
 
-## Desafio Técnico – Sync360
-
-Este repositório contém a solução para o **Desafio Técnico – Perfil de Usuário** solicitado pela equipe da Sync360.io.
-
-### Objetivo
-Desenvolver uma página web para exibição, edição e salvamento de perfil de usuário, com dados armazenados em banco de dados MySQL.
-
-### Requisitos Atendidos
-- Exibição das informações do usuário:
-  - Imagem de perfil
-  - Nome completo
-  - Idade
-  - Rua, bairro, estado
-  - Biografia
-- Formulário para edição dos dados acima, com envio das alterações
-- Salvamento das informações em banco de dados MySQL
-- Interface responsiva e agradável (desktop e mobile)
-- API em PHP (Laravel) com rotas para buscar e atualizar dados do usuário
-- Possibilidade de listar, editar e deletar múltiplos perfis (extra)
-
-### Tecnologias Utilizadas
-- **Backend:** PHP 8.2+, Laravel 12.x, MySQL
-- **Frontend:** Blade (Laravel), TailwindCSS, JavaScript
+**Desafio Técnico – Sync360**  
+[🔗 Acesse o projeto online](https://laravel-deploy-sync360-latest.onrender.com/user_profiles)
 
 ---
 
-## Como rodar o projeto localmente
+## ✨ Visão Geral
 
-### Pré-requisitos
-- PHP >= 8.2
-- Composer
-- Node.js >= 18
-- NPM >= 9
-- MySQL
+O **User Profile Sync 360** é uma aplicação web fullstack desenvolvida como parte do processo seletivo da Sync360. Ela permite o cadastro, edição, listagem e exclusão de perfis de usuários com imagem, tudo armazenado em banco de dados MySQL.
 
-### Instalação
-
-1. **Clone o repositório:**
-   ```bash
-   git clone https://github.com/mateusesr/user_profile_sync360.git
-   cd user-profile-sync-360
-   ```
-
-2. **Instale as dependências do backend:**
-   ```bash
-   composer install
-   ```
-
-3. **Instale as dependências do frontend:**
-   ```bash
-   npm install
-   ```
-
-4. **Configure o arquivo `.env`:**
-   - Copie o exemplo e ajuste para seu ambiente MySQL:
-     ```env
-     APP_KEY= # gere com o comando abaixo
-     APP_URL=http://localhost:8000
-     DB_CONNECTION=mysql
-     DB_HOST=127.0.0.1
-     DB_PORT=3306
-     DB_DATABASE=nome_do_banco
-     DB_USERNAME=usuario
-     DB_PASSWORD=senha
-     FILESYSTEM_DISK=public
-     ```
-   - Gere a chave da aplicação:
-     ```bash
-     php artisan key:generate
-     ```
-   - Crie o banco de dados MySQL informado acima antes de rodar as migrações.
-
-5. **Execute as migrações.**
-   ```bash
-   php artisan migrate
-   ```
-
-6. **(Opcional) Popule o banco com dados de exemplo:**
-   ```bash
-   php artisan db:seed
-   ```
-
-7. **Execute o projeto:**
-   ```bash
-   composer run dev
-   ```
-   Isso irá iniciar o servidor Laravel e o frontend (Vite).
-
-8. **Acesse no navegador:**
-   [http://localhost:8000/user_profiles](http://localhost:8000/user_profiles)
+O projeto foi feito com **Laravel 12** (estrutura MVC), views em **Blade**, estilização com **TailwindCSS** e build com **Vite**, além de responsividade total e feedback visual com SweetAlert2.
 
 ---
 
-## Estrutura de Pastas
-- `app/Http/Controllers/` — Controladores da aplicação
+## 📸 Prints das Telas
+
+### 🖥️ Tela Desktop
+![Desktop](README-assets/desktop.png)
+
+### 📱 Tela Mobile
+![Mobile](README-assets/mobile.png)
+
+### ➕ Formulário de Criação
+![Formulário](README-assets/form-criacao.png)
+
+### ✏️ Tela de Edição
+![Edição](README-assets/editar.png)
+
+### ✅ Feedback Visual (SweetAlert)
+![Sucesso](README-assets/sucesso.png)
+
+---
+
+## 🚀 Funcionalidades
+
+- 🔎 Busca por nome entre perfis
+- ➕ Cadastro de novo perfil
+- ✏️ Edição de perfil existente
+- 🗑️ Exclusão com confirmação
+- 🖼️ Upload de imagem de perfil
+- 📱 Interface 100% responsiva
+- ✅ Feedback visual (sucesso, erros, etc.)
+
+---
+
+## ✅ Validações e Boas Práticas
+
+- Todos os campos obrigatórios validados
+- Upload de imagem validado (extensão e tamanho)
+- Mensagens de erro e sucesso com SweetAlert2
+- Estrutura clara com uso de controllers, models e views
+- Organização em padrões Laravel MVC
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Backend:** PHP 8.2+, Laravel 12.x
+- **Frontend:** Blade + TailwindCSS + JavaScript
+- **Build:** Vite + Laravel Vite Plugin
+- **Banco de Dados:** MySQL
+- **Outros:** SweetAlert2, FontAwesome
+
+---
+
+## 🔗 Rotas Principais
+
+| Método | Rota                          | Descrição                 |
+|--------|-------------------------------|---------------------------|
+| GET    | `/user_profiles`              | Lista todos os perfis     |
+| GET    | `/user_profiles/new`          | Formulário de novo perfil |
+| POST   | `/user_profiles/new`          | Salvar novo perfil        |
+| GET    | `/user_profiles/edit/{id}`    | Editar perfil existente   |
+| POST   | `/user_profiles/edit`         | Atualizar perfil          |
+| DELETE | `/user_profiles/delete/{id}`  | Excluir perfil            |
+
+---
+
+## 🗂️ Estrutura de Pastas
+
+- `app/Http/Controllers/` — Controladores
 - `app/Models/` — Modelos Eloquent
-- `resources/views/` — Views Blade (HTML)
-- `routes/web.php` — Rotas web
+- `resources/views/` — Views Blade
+- `routes/web.php` — Definição de rotas
 - `database/migrations/` — Migrações do banco
-- `public/` — Arquivos públicos
+- `public/` — Arquivos públicos (imagens, build do Vite)
 
-## Fluxo de Uso
-1. Acesse `/user_profiles` para ver a lista de perfis cadastrados.
-2. Clique em "Criar novo perfil" para cadastrar um novo usuário.
-3. Edite ou exclua perfis existentes usando os botões na listagem.
+---
 
+## 🧩 Modelo de Dados
 
-## Observações
-- O backend utiliza MySQL por padrão, mas pode ser adaptado para SQLite.
-- O frontend é responsivo e utiliza TailwindCSS.
-- O projeto segue boas práticas de organização e componentização.
+### UserProfile
 
-## Contato
-Desenvolvido por Mateus Rosa (<mateusesr1@gmail.com>) para o processo seletivo da Sync360.io.
+| Campo          | Tipo    | Descrição             |
+|----------------|---------|-----------------------|
+| `nome`         | string  | Nome completo         |
+| `idade`        | int     | Idade                 |
+| `rua`          | string  | Rua                   |
+| `bairro`       | string  | Bairro                |
+| `cidade`       | string  | Cidade                |
+| `estado`       | string  | Estado                |
+| `biografia`    | text    | Descrição pessoal     |
+| `imagem_perfil`| string  | Caminho da imagem     |
 
-Dúvidas ou sugestões? Abra uma issue ou entre em contato!
+---
+
+## 🖥️ Como rodar localmente
+
+```bash
+# 1. Clone o repositório
+git clone https://github.com/seu-usuario/user-profile-sync-360.git
+cd user-profile-sync-360
+
+# 2. Instale as dependências PHP
+composer install
+
+# 3. Instale dependências JS
+npm install
+
+# 4. Configure o ambiente
+cp .env.example .env
+php artisan key:generate
+
+# 5. Configure o banco no .env e execute as migrações
+php artisan migrate
+
+# 6. (Opcional) Popule o banco
+php artisan db:seed
+
+# 7. Rode o frontend e backend localmente
+npm run dev
+php artisan serve
+```
+
+---
+
+## 🚀 Deploy (Render)
+
+O projeto foi publicado em ambiente Docker via Render:
+
+- `public/build` está versionado
+- Ambiente `.env` configurado via painel Render
+- `storage:link` e `migrate` são executados em `start.sh`
+- Build do Vite feito localmente antes do push
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Mateus Elias Sarmento da Rosa**  
+✉️ <mateusesr1@gmail.com>  
+🔗 [LinkedIn](https://www.linkedin.com/in/mateuseliasdev)
+
+---
+
+## 📄 Licença
+
+Este projeto é open-source e pode ser utilizado para fins de estudo e aprendizado.
+
+---

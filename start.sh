@@ -12,9 +12,15 @@ php artisan route:cache
 echo "Creating storage symlink..."
 php artisan storage:link
 
+npm install
+npm run build
+
 echo "Publishing cloudinary provider..."
 php artisan vendor:publish --provider="CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider" --tag="cloudinary-laravel-config"
 
 echo "Running migrations..."
 php artisan migrate --force
+
+echo "Rodando seeders..."
+php artisan db:seed --force
 
