@@ -9,9 +9,11 @@ php artisan config:cache
 echo "Caching routes..."
 php artisan route:cache
 
+php artisan storage:link
+
+
 echo "Running Vite build..."
-npm install
-npm run build
+
 
 echo "Publishing cloudinary provider..."
 php artisan vendor:publish --provider="CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider" --tag="cloudinary-laravel-config"
