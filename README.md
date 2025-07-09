@@ -153,7 +153,7 @@ O projeto foi publicado em ambiente Docker via Render:
 
 Desenvolvido por **Mateus Elias Sarmento da Rosa**  
 ✉️ <mateusesr1@gmail.com>  
-🔗 [LinkedIn](https://www.linkedin.com/in/mateuseliasdev)
+🔗 [LinkedIn](https://www.linkedin.com/in/mateus-rosa-769799232/)
 
 ---
 
