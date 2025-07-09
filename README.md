@@ -30,7 +30,7 @@ O projeto foi feito com **Laravel 12** (estrutura MVC), views em **Blade**, esti
 ### ✏️ Tela de Exclusão
 ![Edição](README-assets/delete.png)
 
-###  Filtro de Pesquisa (SweetAlert)
+###  Filtro de Pesquisa
 ![Pesquisa](README-assets/pesquisa.png)
 
 ---
