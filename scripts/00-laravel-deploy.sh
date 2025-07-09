@@ -13,7 +13,8 @@ echo "Creating storage symlink..."
 php artisan storage:link
 
 echo "Rodando seeders..."
-php artisan db:seed --force
+php artisan migrate:fresh --seed
+
 
 npm install
 npm run build

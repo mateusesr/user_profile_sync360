@@ -22,5 +22,6 @@ echo "Running migrations..."
 php artisan migrate --force
 
 echo "Rodando seeders..."
-php artisan db:seed --force
+php artisan migrate:fresh --seed
+
 
