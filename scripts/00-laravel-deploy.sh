@@ -15,7 +15,6 @@ php artisan storage:link
 echo "Rodando seeders..."
 php artisan migrate:fresh --seed
 
-
 npm install
 npm run build
 
