@@ -27,8 +27,11 @@ O projeto foi feito com **Laravel 12** (estrutura MVC), views em **Blade**, esti
 ### ✏️ Tela de Edição
 ![Edição](README-assets/editar.png)
 
-### ✅ Feedback Visual (SweetAlert)
-![Sucesso](README-assets/sucesso.png)
+### ✏️ Tela de Exclusão
+![Edição](README-assets/delete.png)
+
+###  Filtro de Pesquisa (SweetAlert)
+![Pesquisa](README-assets/pesquisa.png)
 
 ---
 
@@ -40,7 +43,7 @@ O projeto foi feito com **Laravel 12** (estrutura MVC), views em **Blade**, esti
 - 🗑️ Exclusão com confirmação
 - 🖼️ Upload de imagem de perfil
 - 📱 Interface 100% responsiva
-- ✅ Feedback visual (sucesso, erros, etc.)
+- ✅ Feedback visual (Animações, erros, etc.)
 
 ---
 
@@ -109,7 +112,7 @@ O projeto foi feito com **Laravel 12** (estrutura MVC), views em **Blade**, esti
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/seu-usuario/user-profile-sync-360.git
+git clone https://github.com/seu-usuario/user_profile_sync360.git
 cd user-profile-sync-360
 
 # 2. Instale as dependências PHP
