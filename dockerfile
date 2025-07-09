@@ -1,10 +1,12 @@
 FROM php:8.2-fpm
 
-# Instala extensões PHP necessárias
+# Instala extensões PHP e Node
 RUN apt-get update && apt-get install -y \
     libpng-dev \
     libonig-dev \
-@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y \
+    libxml2-dev \
+    zip \
+    unzip \
     git \
     curl \
     libzip-dev \
@@ -13,24 +15,22 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 
 # Instala Composer
-@@ -18,12 +20,16 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
 # Define diretório de trabalho
 WORKDIR /var/www
 
-# Copia os arquivos do projeto
+# Copia arquivos do projeto
 COPY . .
 
-# Instala dependências PHP e JS
+# Instala dependências
 RUN composer install
 RUN php artisan storage:link
-
 RUN npm install
 RUN npm run build
 
-
-
-# Cache de config Laravel
+# Cache de configuração Laravel
 RUN php artisan config:cache
 
-# Executa Laravel com host e porta
+# Inicia servidor
 CMD php artisan serve --host=0.0.0.0 --port=10000
